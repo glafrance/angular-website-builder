@@ -1,0 +1,20 @@
+<div class="page-container">
+  <h1 class="title website">WEBSITE</h1>
+  <h1 class="title angular">Angular</h1>
+  <h1 class="title builder">BUILDER</h1>
+
+  <h3 class="unleash">Unleash your creativity !!!</h3>
+
+  <button 
+    *ngIf="!signedIn"
+    mat-flat-button 
+    color="primary" 
+    class="explore" 
+    (click)="onSignupSignin()">SIGNIN / SIGNUP AND EXPLORE</button>
+  <button 
+    *ngIf="signedIn"
+    mat-flat-button 
+    color="primary" 
+    class="explore" 
+    (click)="onVisitProfile()">VISIT PROFILE PAGE</button>
+</div>

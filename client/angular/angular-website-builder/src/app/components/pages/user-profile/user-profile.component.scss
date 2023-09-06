@@ -1,0 +1,77 @@
+@import "variables";
+
+.page-container {
+  padding-bottom: 40px; 
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.fields-container {
+  display: flex;
+  gap: 50px;
+  margin-top: 35px;
+}
+.fields-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-control-container {
+  display: flex;
+  flex-direction: column;
+}
+.account-image-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  height: 50px;
+}
+.account-image-container p {
+  margin: 0;
+  margin-right: 20px;
+}
+.account-image-icon {
+  transform: scale(2.5);
+  cursor: pointer;
+}
+.profile-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  cursor: pointer;
+}
+mat-form-field {
+  width: 400px;
+}
+.errors-container {
+  margin-top: -20px;
+}
+.form-error-text {
+  margin: 0;
+  color: $red500;
+  font-size: 12px;
+}
+button {
+  color: white;
+  margin-top: 30px;
+}
+.submit-btn:disabled {
+  opacity: 0.5;
+}
+.bio-blurb {
+  height: 300px;
+  resize: none;
+  padding: 10px;
+}
+.bio-error {
+  margin-top: 7px;
+}
+
+@media screen and (max-width: 1000px) {
+  // Ensure the profile page fields display in a single column on narrow screen widths.
+  .fields-container {
+    flex-direction: column;
+  }    
+}

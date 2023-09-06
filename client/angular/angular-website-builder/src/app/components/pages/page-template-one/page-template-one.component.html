@@ -1,0 +1,16 @@
+<!--  
+  This component is a page template. You provide the title and optional sub-title 
+  via attributes when you use this page template. The content you want to 
+  display on this page will be inserted into the <ng-content> element.
+
+    https://angular.io/guide/content-projection
+    https://angular.io/api/core/ng-content
+
+  See this file for an example of using this page template:
+  user-profile.component.html
+-->
+<div class="page-container">
+  <h1 class="title" *ngIf="title">{{title}}</h1>
+  <h3 class="sub-title" *ngIf="subTitle">{{subTitle}}</h3>
+  <ng-content></ng-content>
+</div>

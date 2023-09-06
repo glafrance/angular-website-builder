@@ -1,0 +1,13 @@
+@import "variables";
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  color: $lightBlue900;
+}
+.sub-title {
+  color: $green900;
+}

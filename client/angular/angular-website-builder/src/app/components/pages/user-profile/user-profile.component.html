@@ -1,0 +1,188 @@
+<!--  
+  This is an example of using the page template component:
+    app/components/pages/page-template-one
+-->
+<app-page-template-one 
+  [title]="title"
+  [subTitle]="subTitle">
+  <div class="page-container">
+    <!-- Angular reactive form, makes use of Angular Material controls:
+      https://angular.io/guide/reactive-forms
+      https://material.angular.io/components/input/overview
+    -->
+    <form [formGroup]="userProfileForm">
+      <div class="fields-container">
+        <div class="fields-column">
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>email address</mat-label>
+              <input type="email" matInput formControlName="email" (input)="dataChanged($event, 'email')">
+            </mat-form-field>
+            <!-- Show errors conditionally, tapping into the Angular reactive form errors and touched properties. -->
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="email?.errors?.['email'] && email?.touched">Invalid email format</p>    
+            </div>
+          </div>  
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>password</mat-label>
+              <input type="password" matInput formControlName="password" (input)="dataChanged($event, 'password')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(password?.errors?.['minlength'] || password?.errors?.['maxlength']) && password?.touched">Invalid password length (8 - 15 characters)</p>
+              <div *ngIf="password?.errors?.['pattern'] && password?.touched">
+                <p class="form-error-text">Password requirements:</p>
+                <p class="form-error-text">1 uppercase letter</p>
+                <p class="form-error-text">1 lowercase letter</p>
+                <p class="form-error-text">1 number</p>
+                <p class="form-error-text">1 special character (@$!%*?&)</p>
+                <p class="form-error-text">8 - 15 character in length</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>password confirm</mat-label>
+              <input type="password" matInput formControlName="passwordConfirm" (input)="dataChanged($event, 'passwordConfirm')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="userProfileForm?.errors?.['passwordsDoNotMatch'] && passwordConfirm?.touched">Passwords do not match</p>  
+            </div>
+          </div>  
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>first name</mat-label>
+              <input type="text" matInput formControlName="firstName" (input)="dataChanged($event, 'firstName')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(firstName?.errors?.['maxlength']) && firstName?.touched">Maximum length 30 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>last name</mat-label>
+              <input type="text" matInput formControlName="lastName" (input)="dataChanged($event, 'lastName')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(lastName?.errors?.['maxlength']) && lastName?.touched">Maximum length 30 characters</p>
+            </div>
+          </div>  
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>home phone</mat-label>
+              <input type="text" matInput formControlName="homePhone" (input)="dataChanged($event, 'homePhone')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(homePhone?.errors?.['maxlength']) && homePhone?.touched">Maximum length 10 characters</p>
+            </div>
+          </div>
+          <div class="account-image-container">
+            <p>Account Image</p>
+            <mat-icon 
+              *ngIf="!profileImageSrc"
+              class="account-image-icon" 
+              aria-hidden="false" 
+              aria-label="account box icon" 
+              fontIcon="account_box"
+              (click)="imageUpload.click()"></mat-icon>
+              <img 
+                *ngIf="profileImageSrc" 
+                class="profile-image"
+                [src]="profileImageSrc"
+                (click)="imageUpload.click()" />
+            <input 
+              #imageUpload 
+              type="file" 
+              accept="image/png, image/jpeg" 
+              style="display:none"
+              [(ngModel)]="profileImage"
+              (change)="onSelectImage($event)"
+              (input)="dataChanged($event, 'profileImage')"
+              [ngModelOptions]="{standalone: true}"/> 
+          </div>
+        </div>        
+        <div class="fields-column">
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>address</mat-label>
+              <input type="text" matInput formControlName="address" (input)="dataChanged($event, 'address')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(address?.errors?.['maxlength']) && address?.touched">Maximum length 50 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>address2</mat-label>
+              <input type="text" matInput formControlName="address2" (input)="dataChanged($event, 'address2')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(address2?.errors?.['maxlength']) && address2?.touched">Maximum length 30 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>city</mat-label>
+              <input type="text" matInput formControlName="city" (input)="dataChanged($event, 'city')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(city?.errors?.['maxlength']) && city?.touched">Maximum length 30 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>state</mat-label>
+              <input type="text" matInput formControlName="state" (input)="dataChanged($event, 'state')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(state?.errors?.['maxlength']) && state?.touched">Maximum length 2 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>zip code</mat-label>
+              <input type="text" matInput formControlName="postalCode" (input)="dataChanged($event, 'postalCode')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(postalCode?.errors?.['maxlength']) && postalCode?.touched">Maximum length 10 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>mobile phone</mat-label>
+              <input type="text" matInput formControlName="mobilePhone" (input)="dataChanged($event, 'mobilePhone')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(mobilePhone?.errors?.['maxlength']) && mobilePhone?.touched">Maximum length 10 characters</p>
+            </div>
+          </div>
+          <div class="form-control-container">
+            <mat-form-field>
+              <mat-label>work phone</mat-label>
+              <input type="text" matInput formControlName="workPhone" (input)="dataChanged($event, 'workPhone')">
+            </mat-form-field>
+            <div class="errors-container">
+              <p class="form-error-text" *ngIf="(workPhone?.errors?.['maxlength']) && workPhone?.touched">Maximum length 10 characters</p>
+            </div>
+          </div>          
+        </div>        
+      </div>
+      <div class="form-control-container">
+        <textarea 
+          #bioBlurbElemRef 
+          id="bioBlurbField" 
+          class="bio-blurb" 
+          [value]="bioBlurb.value"
+          (input)="dataChanged($event, 'bioBlurb')"
+          (blur)="onBioBlurbBlur()"
+          placeholder="bio (a bit about you)"></textarea>
+        <p class="form-error-text bio-error" *ngIf="(bioBlurb.errors.minlength || bioBlurb.errors.maxlength) && bioBlurb.touched">Length 50 - 1000 characters (currently {{bioBlurbElemRef.value.length}})</p>
+      </div>
+    </form>
+    <button 
+      mat-flat-button 
+      color="primary" 
+      (click)="submitUserProfile()"
+      [disabled]="disableButton()">Save Profile Changes</button>
+  </div>
+</app-page-template-one>

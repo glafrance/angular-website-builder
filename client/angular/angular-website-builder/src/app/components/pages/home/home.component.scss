@@ -1,0 +1,43 @@
+@import "variables";
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  margin-top: 200px;
+  gap: 50px;
+}
+h1, h3 {
+  margin: 0;
+}
+.title.website {
+  font-family: 'Fondamento', cursive;
+  color: $red900;
+  font-size: 85px;
+  letter-spacing: 10px;
+  line-height: 50px;
+}
+.title.angular {
+  font-family: 'Russo One', sans-serif;
+  color: $lightBlue900;
+  font-size: 60px;
+  letter-spacing: 10px;
+  line-height: 100px;
+}
+.title.builder {
+  font-family: 'Fondamento', cursive;
+  color: $green800;
+  font-size: 85px;
+  letter-spacing: 10px;
+  line-height: 50px;
+  margin-bottom: 50px;
+}
+.unleash {
+  font-family: 'Gamja Flower', cursive;
+  font-size: 40px;
+  letter-spacing: 10px;
+  margin-bottom: 50px;
+  color: $deepPurple800;
+}

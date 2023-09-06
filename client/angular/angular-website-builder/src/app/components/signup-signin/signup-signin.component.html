@@ -1,0 +1,74 @@
+<!-- 
+  This is the popup user enters information to either signup or signin
+  to this application. It is a single popup that has a mode, 
+  either Signup or Signin. If the mode is Signup then the password confirm
+  field will also be displayed. If the mode is Signin then the password
+  confirm field is not necessary and will not be displayed.
+ -->
+<div class="signup-signin-container">
+  <div class="titleContainer">
+    <h2 class="title">{{title}}</h2>
+    <app-user-manager-text></app-user-manager-text>
+  </div>
+  <div mat-dialog-content>
+    <form 
+      [formGroup]="signupSigninForm" 
+      (ngSubmit)="signupSignin()">
+      <div class="form-control-container">
+        <mat-form-field>
+          <mat-label>email address</mat-label>
+          <input type="email" matInput formControlName="email" (input)="disableButtons()">
+        </mat-form-field>
+        <div class="errors-container">
+          <p class="form-error-text" *ngIf="email?.errors?.['required'] && email?.touched">Email is required</p>  
+          <p class="form-error-text" *ngIf="email?.errors?.['email'] && email?.touched">Invalid email format</p>    
+        </div>
+      </div>
+      <div class="form-control-container">
+        <mat-form-field>
+          <mat-label>password</mat-label>
+          <input type="password" matInput formControlName="password" (input)="disableButtons()">
+        </mat-form-field>
+        <div class="errors-container">
+          <p class="form-error-text" *ngIf="password?.errors?.['required'] && password?.touched">Password is required</p>
+          <p class="form-error-text" *ngIf="data.mode === 'Signup' && (password?.errors?.['minlength'] || password?.errors?.['maxlength']) && password?.touched">Invalid password length (8 - 15 characters)</p>
+          <div *ngIf="data.mode === 'Signup' && password?.errors?.['pattern'] && password?.touched">
+            <p class="form-error-text">Password requirements:</p>
+            <p class="form-error-text">1 uppercase letter</p>
+            <p class="form-error-text">1 lowercase letter</p>
+            <p class="form-error-text">1 number</p>
+            <p class="form-error-text">1 special character (@$!%*?&)</p>
+            <p class="form-error-text">8 - 15 character in length</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-control-container" *ngIf="data.mode === 'Signup'">
+        <mat-form-field>
+          <mat-label>password confirm</mat-label>
+          <input type="password" matInput formControlName="passwordConfirm" (input)="disableButtons()">
+        </mat-form-field>
+        <div class="errors-container">
+          <p class="form-error-text" *ngIf="signupSigninForm?.errors?.['passwordsDoNotMatch'] && passwordConfirm?.touched">Passwords do not match</p>  
+        </div>
+      </div>
+    </form>
+    <p class="switch-message">
+      <span>{{switchSignupSigninMessage}}</span>
+      <strong>
+        <span 
+          class="switch-action-message"
+          (click)="switchMode()"> {{switchActionMessage}}</span>
+      </strong>
+    </p>
+    <h4 
+      class="forgot-password"
+      (click)="forgotPassword()">Forgot Password</h4>
+  </div>
+  <div mat-dialog-actions>
+    <button 
+      mat-button class="action-button" 
+      (click)="signupSignin()"
+      [disabled]="disableButtons()">{{signupSigninButtonText}}</button>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</div>
