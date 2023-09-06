@@ -44,4 +44,8 @@ export class HomeComponent implements OnInit {
   onVisitProfile() {
     this.router.navigateByUrl(Constants.ROUTER_URLS.USER_PROFILE);
   }
+
+  onBuildWebsites() {
+    this.router.navigateByUrl(Constants.ROUTER_URLS.BUILD_WEBSITES);
+  }
 }

@@ -15,23 +15,27 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
+import { AppHeaderComponent } from "./components/app-header/app-header.component";
+import { BuildWebsitesComponent } from "./components/pages/build-websites/build-websites.component";
 import { HomeComponent } from "./components/pages/home/home.component";
 import { PageTemplateOneComponent } from "./components/pages/page-template-one/page-template-one.component";
 import { RequestResetPasswordComponent } from "./components/signup-signin/sub-components/request-reset-password/request-reset-password.component";
 import { ResponseResetPasswordComponent } from "./components/signup-signin/sub-components/response-reset-password/response-reset-password.component";
 import { SignupSigninComponent } from "./components/signup-signin/signup-signin.component";
-import { UserManagerText } from "./components/shared/user-manager-text/user-manager-text.component";
 import { UserProfileComponent } from "./components/pages/user-profile/user-profile.component";
+import { WebsiteBuilderText } from "./components/shared/website-builder-text/website-builder-text.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppHeaderComponent,
+    BuildWebsitesComponent,
     HomeComponent,
     PageTemplateOneComponent,
     RequestResetPasswordComponent,
     ResponseResetPasswordComponent,
     SignupSigninComponent,
-    UserManagerText,
+    WebsiteBuilderText,
     UserProfileComponent
   ],
   imports: [

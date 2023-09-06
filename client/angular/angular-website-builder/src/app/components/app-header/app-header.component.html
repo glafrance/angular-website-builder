@@ -1,0 +1,17 @@
+<header>
+  <div
+    routerLink="/" 
+    class="logo-container">
+    <div class="logo-and-text">
+      <img class="logo" src="./assets/images/website-builder-logo.png" >
+      <app-website-builder-text></app-website-builder-text>
+    </div>
+    <h4 class="slogan"><em>Web Development Made Easy</em></h4>
+  </div>
+  <div class="menu-container">
+    <!-- Conditionally show Signup/Singin or Signout depending 
+      on whether or not the user is currently signed in -->
+    <h3 *ngIf="!signedIn" (click)="onSignupSignin()">Signup/Signin</h3>
+    <h3 *ngIf="signedIn" (click)="onSignout()">Signout</h3>
+  </div>
+</header>

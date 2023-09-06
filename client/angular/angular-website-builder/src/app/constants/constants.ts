@@ -7,7 +7,8 @@ export default class Constants {
     EMPTY: "/",
     HOME: "home",
     RESPONSE_RESET_PASSWORD: "response-reset-password",
-    USER_PROFILE: "user-profile"
+    USER_PROFILE: "user-profile",
+    BUILD_WEBSITES: "build-websites"
   };
 
   // General constants
