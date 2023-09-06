@@ -1,0 +1,44 @@
+@import "variables";
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+.toolbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  cursor: pointer;
+}
+.toolbar-item-details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 50px;
+  padding: 20px;
+}
+.layout-icon-container {
+  padding: 5px;
+  border: 1px solid $blueGray600;
+}
+.layout-icon {
+  width: 50px;
+  height: 50px;
+}
+.website-container {
+  position: absolute;
+  top: 130px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 80vh;
+  border: 1px solid $blueGray600;
+}

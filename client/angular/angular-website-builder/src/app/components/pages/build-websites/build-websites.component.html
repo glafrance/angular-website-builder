@@ -1,0 +1,19 @@
+<div class="page-container">
+  <div class="toolbar">
+    <div 
+      class="toolbar-item" 
+      title="Layout Containers"
+      (mouseover)="onShowLayouts()"
+      (mouseleave)="onHideLayouts()">
+      <mat-icon aria-hidden="false" aria-label="layout icon" fontIcon="space_dashboard"></mat-icon>
+      <div 
+        *ngIf="showLayouts"
+        class="toolbar-item-details">
+        <div *ngFor="let icon of layoutIcons" class="layout-icon-container">
+          <img class="layout-icon" [src]="icon" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="website-container"></div>
+</div>
