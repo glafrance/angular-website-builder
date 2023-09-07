@@ -40,9 +40,17 @@
   right: 10px;
   bottom: 10px;
   height: 80vh;
-  border: 1px solid $blueGray600;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 .dragging-over {
   border: 2px dashed $lightBlue900;
+}
+.disabled-icon {
+  cursor: default;
+}
+.disabled-icon mat-icon {
+  color: #aaa;
 }

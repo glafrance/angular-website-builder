@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 
 import Constants from "src/app/constants/constants";
 import LayoutUtils from "src/app/utils/layout.utils";
@@ -12,6 +13,7 @@ import Utils from "src/app/utils/utils";
 export class BuildWebsitesComponent implements OnInit {
   showLayouts: boolean = false;
   tools: any;
+  layoutSelected: boolean = false;
 
   layoutIcons: any = [
     "../../../assets/images/layout-icons/single.png",
@@ -22,7 +24,6 @@ export class BuildWebsitesComponent implements OnInit {
     "../../../assets/images/layout-icons/4col.png",
     "../../../assets/images/layout-icons/4row.png",
     "../../../assets/images/layout-icons/4cont.png",
-    "../../../assets/images/layout-icons/hf.png",
     "../../../assets/images/layout-icons/hf2col.png",
     "../../../assets/images/layout-icons/hf2row.png",
     "../../../assets/images/layout-icons/hf3col.png",
@@ -30,13 +31,21 @@ export class BuildWebsitesComponent implements OnInit {
     "../../../assets/images/layout-icons/hf4cont.png"
   ];
 
+  constructor(private toastr: ToastrService) {}
+
   ngOnInit(): void {
     this.tools = Constants.TOOLS;
   }
 
-  getTooltip(iconPath: string) {
-    if (iconPath) {
-      const key = Utils.getToolKey(iconPath);
+  getTooltip(mode: string) {
+    if (mode === "layout_icon") {
+      if (!this.layoutSelected) {
+        return "Layout Containers";
+      } else {
+        return "Layout container already selected";
+      }
+    } else {
+      const key = Utils.getToolKey(mode);
 
       if (key) {
         const item = this.tools.LAYOUT[key];
@@ -89,25 +98,12 @@ export class BuildWebsitesComponent implements OnInit {
     const data = evt.dataTransfer.getData("text/plain");
 
     if (data) {
-      const key = Utils.getToolKey(data);
+      const key: string = Utils.getToolKey(data);
 
-      if (key) {
-        switch (key) {
-          case "single":
-            const singleContainer = LayoutUtils.createSingleContainer(
-              "98.5%", 
-              "97%", 
-              this.onDragEnter, 
-              this.onDragLeave, 
-              this.onDragOver, 
-              this.onDrop
-            );
-
-            if (singleContainer) {
-              target.appendChild(singleContainer);
-            }
-            break;
-        }
+      if (key && Constants.LAYOUT_KEYS.indexOf(key) !== -1) {
+        LayoutUtils.addLayout(key, target, this.onDragEnter, this.onDragLeave, this.onDragOver, this.onDrop);
+        this.layoutSelected = true;
+        this.toastr.success("Colored borders will be removed on deploying website");
       }
     }
   }

@@ -85,9 +85,6 @@ export default class Constants {
       "4cont": {
         tooltip: "Four containers"
       },
-      "hf": {
-        tooltip: "Header or footer"
-      },
       "hf2col": {
         tooltip: "Header, footer and two columns"
       },
@@ -105,4 +102,20 @@ export default class Constants {
       }
     }
   };
+
+  public static LAYOUT_KEYS = [
+    "single",
+    "2col",
+    "2row",
+    "3col",
+    "3row",
+    "4col",
+    "4row",
+    "4cont",
+    "hf2col",
+    "hf2row",
+    "hf3col",
+    "hf3row",
+    "hf4cont"
+  ];
 }

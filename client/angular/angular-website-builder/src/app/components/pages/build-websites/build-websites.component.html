@@ -2,12 +2,13 @@
   <div class="toolbar">
     <div 
       class="toolbar-item" 
-      title="Layout Containers"
+      [ngClass]="{'disabled-icon': layoutSelected}"
+      [title]="getTooltip('layout_icon')"
       (mouseover)="onShowLayouts()"
       (mouseleave)="onHideLayouts()">
       <mat-icon aria-hidden="false" aria-label="layout icon" fontIcon="space_dashboard"></mat-icon>
       <div 
-        *ngIf="showLayouts"
+        *ngIf="showLayouts && !layoutSelected"
         class="toolbar-item-details">
         <div 
           *ngFor="let icon of layoutIcons" 
