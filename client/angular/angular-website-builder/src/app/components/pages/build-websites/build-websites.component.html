@@ -9,11 +9,24 @@
       <div 
         *ngIf="showLayouts"
         class="toolbar-item-details">
-        <div *ngFor="let icon of layoutIcons" class="layout-icon-container">
-          <img class="layout-icon" [src]="icon" />
+        <div 
+          *ngFor="let icon of layoutIcons" 
+          class="layout-icon-container"
+          draggable
+          [title]="getTooltip(icon)">
+          <img 
+            class="layout-icon" 
+            [src]="icon"
+            (dragstart)="onDragStart($event, icon)" />
         </div>
       </div>
     </div>
   </div>
-  <div class="website-container"></div>
+  <div 
+    class="website-container"
+    droppable
+    (dragenter)="onDragEnter($event)"
+    (dragleave)="onDragLeave($event)"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"></div>
 </div>

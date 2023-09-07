@@ -57,4 +57,52 @@ export default class Constants {
   // Local storage keys for data stored in local storage.
   public static SIGNED_IN_LOCAL_STORAGE_KEY = "signed_in";
   public static USER_ID_LOCAL_STORAGE_KEY = "userId";
+
+  // Data for tools.
+  public static TOOLS = {
+    LAYOUT: {
+      "single": {
+        tooltip: "One single container"
+      },
+      "2col": {
+        tooltip: "Two columns"
+      },
+      "2row": {
+        tooltip: "Two rows"
+      },
+      "3col": {
+        tooltip: "Three columns"
+      },
+      "3row": {
+        tooltip: "Three rows"
+      },
+      "4col": {
+        tooltip: "Four columns"
+      },
+      "4row": {
+        tooltip: "Four rows"
+      },
+      "4cont": {
+        tooltip: "Four containers"
+      },
+      "hf": {
+        tooltip: "Header or footer"
+      },
+      "hf2col": {
+        tooltip: "Header, footer and two columns"
+      },
+      "hf2row": {
+        tooltip: "Header, footer and two rows"
+      },
+      "hf3col": {
+        tooltip: "Header, footer and three columns"
+      },
+      "hf3row": {
+        tooltip: "Header, footer and three rows"
+      },
+      "hf4cont": {
+        tooltip: "Header, footer and four containers"
+      }
+    }
+  };
 }
