@@ -4,27 +4,53 @@
       class="toolbar-item" 
       [ngClass]="{'disabled-icon': layoutSelected}"
       [title]="getTooltip('layout_icon')"
-      (mouseover)="onShowLayouts()"
-      (mouseleave)="onHideLayouts()">
+      (mouseover)="onShowLayouts()">
       <mat-icon aria-hidden="false" aria-label="layout icon" fontIcon="space_dashboard"></mat-icon>
-      <div 
-        *ngIf="showLayouts && !layoutSelected"
-        class="toolbar-item-details">
-        <div 
-          *ngFor="let icon of layoutIcons" 
-          class="layout-icon-container"
-          draggable
-          [title]="getTooltip(icon)">
-          <img 
-            class="layout-icon" 
-            [src]="icon"
-            (dragstart)="onDragStart($event, icon)" />
-        </div>
-      </div>
+    </div>
+
+    <div 
+      class="toolbar-item" 
+      [ngClass]="{'disabled-icon': !layoutSelected}"
+      [title]="getTooltip('text_controls')"
+      (mouseover)="onShowTextControls()">
+      <p class="text-controls-icon"><strong>T</strong></p>
     </div>
   </div>
   <div 
+    class="toolbar-details"
+    (mouseleave)="onHideToolbarDetails()">
+    <div 
+      *ngIf="showLayouts && !layoutSelected"
+      class="toolbar-item-details">
+      <div 
+        *ngFor="let icon of layoutIcons" 
+        class="icon-container"
+        draggable
+        [title]="getTooltip('layout', icon)">
+        <img 
+          class="icon" 
+          [src]="icon"
+          (dragstart)="onDragIconStart($event, icon)" />
+      </div>
+    </div>
+
+    <div 
+      *ngIf="showTextControls && layoutSelected"
+      class="toolbar-item-details">
+      <div 
+        *ngFor="let icon of textToolIcons" 
+        class="icon-container"
+        draggable
+        [title]="getTooltip('text', icon)">
+        <img 
+          class="icon" 
+          [src]="icon"
+          (dragstart)="onDragIconStart($event, icon)" />
+      </div>
+    </div>
+  <div 
     class="website-container"
+    (mouseover)="onHideToolbarDetails()"
     droppable
     (dragenter)="onDragEnter($event)"
     (dragleave)="onDragLeave($event)"

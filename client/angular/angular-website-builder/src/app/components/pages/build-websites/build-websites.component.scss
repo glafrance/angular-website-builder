@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
   width: 60%;
 }
 .toolbar-item {
@@ -25,13 +26,18 @@
   padding-top: 50px;
   padding: 20px;
 }
-.layout-icon-container {
+.icon-container {
   padding: 5px;
   border: 1px solid $blueGray600;
+  cursor: pointer;
 }
-.layout-icon {
+.icon {
   width: 50px;
   height: 50px;
+}
+.text-controls-icon {
+  font-size: 24px;
+  margin: 0;
 }
 .website-container {
   position: absolute;
@@ -52,5 +58,8 @@
   cursor: default;
 }
 .disabled-icon mat-icon {
+  color: #aaa;
+}
+.disabled-icon p {
   color: #aaa;
 }

@@ -12,43 +12,47 @@ import Utils from "src/app/utils/utils";
 })
 export class BuildWebsitesComponent implements OnInit {
   showLayouts: boolean = false;
+  showTextControls: boolean = false;
+
   tools: any;
   layoutSelected: boolean = false;
 
-  layoutIcons: any = [
-    "../../../assets/images/layout-icons/single.png",
-    "../../../assets/images/layout-icons/2col.png",
-    "../../../assets/images/layout-icons/2row.png",
-    "../../../assets/images/layout-icons/3col.png",
-    "../../../assets/images/layout-icons/3row.png",
-    "../../../assets/images/layout-icons/4col.png",
-    "../../../assets/images/layout-icons/4row.png",
-    "../../../assets/images/layout-icons/4cont.png",
-    "../../../assets/images/layout-icons/hf2col.png",
-    "../../../assets/images/layout-icons/hf2row.png",
-    "../../../assets/images/layout-icons/hf3col.png",
-    "../../../assets/images/layout-icons/hf3row.png",
-    "../../../assets/images/layout-icons/hf4cont.png"
-  ];
+
+  layoutIcons: any = [];
+  textToolIcons: any = [];
 
   constructor(private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.tools = Constants.TOOLS;
+    this.layoutIcons = Constants.LAYOUT_ICONS;
+    this.textToolIcons = Constants.TEXT_TOOL_ICONS;
   }
 
-  getTooltip(mode: string) {
+  getTooltip(mode: string, icon?: string) {
     if (mode === "layout_icon") {
       if (!this.layoutSelected) {
         return "Layout Containers";
       } else {
         return "Layout container already selected";
       }
-    } else {
-      const key = Utils.getToolKey(mode);
+    } else if (mode === "text_controls") {
+      if (this.layoutSelected) {
+        return "Text Elements"
+      } else {
+        return "Please drag a layout container first";
+      }
+    } else if (icon) {
+      const key = Utils.getToolKey(icon);
 
       if (key) {
-        const item = this.tools.LAYOUT[key];
+        let item;
+
+        if (mode === "layout") {
+          item = this.tools.LAYOUT[key];
+        } else if (mode === "text") {
+          item = this.tools.TEXT[key];
+        }
 
         if (item && item.tooltip) {
           return item.tooltip;
@@ -60,14 +64,21 @@ export class BuildWebsitesComponent implements OnInit {
   }
 
   onShowLayouts() {
+    this.onHideToolbarDetails();
     this.showLayouts = true;
   }
 
-  onHideLayouts() {
+  onHideToolbarDetails() {
     this.showLayouts = false;
+    this.showTextControls = false;
   }
 
-  onDragStart(evt: any, imageUrl: string) {
+  onShowTextControls() {
+    this.onHideToolbarDetails();
+    this.showTextControls = true;
+  }
+
+  onDragIconStart(evt: any, imageUrl: string) {
     const img = new Image();
     img.src = imageUrl;
     evt.dataTransfer.setDragImage(img, 0, 0);

@@ -60,7 +60,7 @@ export default class Utils {
     let key = "";
 
     if (iconPath) {
-      const match = iconPath.match(/.*?layout-icons\/(\w+)\.png/);
+      const match = iconPath.match(/.*?\/(\w+)\.png/);
 
       if (match && (match.length > 0)) {
         key = match[1];        

@@ -101,8 +101,47 @@ export default class Constants {
       "hf4cont": {
         tooltip: "Header, footer and four containers"
       }
+    },
+    TEXT:{
+      "h1": {
+        tooltip: "Heading H1 element"
+      },
+      "h2": {
+        tooltip: "Heading H2 element"
+      },
+      "h3": {
+        tooltip: "Heading H3 element"
+      },
+      "h4": {
+        tooltip: "Heading H4 element"
+      },
+      "h5": {
+        tooltip: "Heading H5 element"
+      },
+      "h6": {
+        tooltip: "Heading H6 element"
+      },
+      "p": {
+        tooltip: "Paragraph element"
+      }
     }
   };
+
+  public static LAYOUT_ICONS: any = [
+    "../../../assets/images/layout-icons/single.png",
+    "../../../assets/images/layout-icons/2col.png",
+    "../../../assets/images/layout-icons/2row.png",
+    "../../../assets/images/layout-icons/3col.png",
+    "../../../assets/images/layout-icons/3row.png",
+    "../../../assets/images/layout-icons/4col.png",
+    "../../../assets/images/layout-icons/4row.png",
+    "../../../assets/images/layout-icons/4cont.png",
+    "../../../assets/images/layout-icons/hf2col.png",
+    "../../../assets/images/layout-icons/hf2row.png",
+    "../../../assets/images/layout-icons/hf3col.png",
+    "../../../assets/images/layout-icons/hf3row.png",
+    "../../../assets/images/layout-icons/hf4cont.png"
+  ];
 
   public static LAYOUT_KEYS = [
     "single",
@@ -118,5 +157,25 @@ export default class Constants {
     "hf3col",
     "hf3row",
     "hf4cont"
+  ];
+
+  public static TEXT_TOOL_ICONS: any = [
+    "../../../assets/images/text-tool-icons/h1.png",
+    "../../../assets/images/text-tool-icons/h2.png",
+    "../../../assets/images/text-tool-icons/h3.png",
+    "../../../assets/images/text-tool-icons/h4.png",
+    "../../../assets/images/text-tool-icons/h5.png",
+    "../../../assets/images/text-tool-icons/h6.png",
+    "../../../assets/images/text-tool-icons/p.png"
+  ];
+
+  public static TEXT_TOOL_KEYS = [
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "p"
   ];
 }
