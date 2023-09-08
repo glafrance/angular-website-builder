@@ -5,14 +5,14 @@ export default class ToolsUtils {
     if (target && tag) {
       const el = document.createElement(tag);
       el.style.cursor = "pointer";
-      el.addEventListener("click", clickHandler);
+      el.addEventListener("click", () => clickHandler(el));
 
       if (target.textContent === Constants.DROP_CONTENT_MESSAGE) {
         target.textContent = "";
       }
 
       if (Constants.TEXT_TOOL_KEYS.indexOf(tag) !== -1) {
-        el.textContent = "add text here";
+        el.textContent = Constants.ADD_TEXT_HERE;
       }
 
       target.appendChild(el);

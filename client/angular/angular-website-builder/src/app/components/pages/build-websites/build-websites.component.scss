@@ -71,23 +71,5 @@
   color: #aaa;
 }
 .side-panel {
-  display: flex;
-  flex-direction: column;
-  width: 500px;  
   height: 100%;
-  border: 1px solid $blueGray600;
-}
-.title-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  position: relative;
-}
-.close-icon {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  font-size: 20px;
-  margin: 0;
 }

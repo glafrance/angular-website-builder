@@ -21,6 +21,7 @@ export default class Constants {
   public static INVALID = "INVALID";
   public static PROFILE_IMAGE = "profileImage";
   public static DROP_CONTENT_MESSAGE = "Drop web page content here";
+  public static ADD_TEXT_HERE = "add text here";
 
   // Constants for backend calls, HTTP methods.
   public static HTTP_METHODS = {

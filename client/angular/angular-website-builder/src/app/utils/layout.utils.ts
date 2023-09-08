@@ -96,19 +96,27 @@ export default class LayoutUtils {
         target.appendChild(parentContainer);
         break;
       case "4cont":
-        parentContainer = LayoutUtils.createContainer("98.5%", "97%");
-        LayoutUtils.setCommonFlexProperties(parentContainer);
-        parentContainer.style.flexWrap = "wrap";
+        parentContainer = LayoutUtils.createContainer("99%", "99%");
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        cont1 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        cont2 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        cont3 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        cont4 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row1 = LayoutUtils.createContainer("98.5%", "48%");  
+        row2 = LayoutUtils.createContainer("98.5%", "48%");  
 
-        parentContainer.appendChild(cont1);
-        parentContainer.appendChild(cont2);
-        parentContainer.appendChild(cont3);
-        parentContainer.appendChild(cont4);
+        LayoutUtils.setCommonFlexProperties(row1, { noPadding: true, noBorder: true });
+        LayoutUtils.setCommonFlexProperties(row2, { noPadding: true, noBorder: true });
+
+        cont1 = LayoutUtils.createContainer("49.5%", "95%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont2 = LayoutUtils.createContainer("49.5%", "95%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont3 = LayoutUtils.createContainer("49.5%", "95%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont4 = LayoutUtils.createContainer("49.5%", "95%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+
+        row1.appendChild(cont1);
+        row1.appendChild(cont2);
+        row2.appendChild(cont3);
+        row2.appendChild(cont4);
+
+        parentContainer.appendChild(row1);
+        parentContainer.appendChild(row2);
         target.appendChild(parentContainer);
         break;
       case "hf2col":

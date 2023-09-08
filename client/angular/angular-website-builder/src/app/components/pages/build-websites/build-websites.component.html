@@ -59,20 +59,11 @@
       (dragover)="onDragOver($event)"
       (drop)="onDrop($event)">
     </div>
-    <div
-      #sidePanel
-      *ngIf="showSidePanel" 
-      class="side-panel">
-      <div class="title-container">
-        <h3>Property Inspector</h3>
-        <mat-icon 
-          class="close-icon" 
-          aria-hidden="false" 
-          aria-label="close icon" 
-          fontIcon="close"
-          (click)="closeSidePanel()">
-        </mat-icon>
-      </div>
-    </div>
+    <app-property-side-panel
+      *ngIf="showSidePanel"
+      class="side-panel"
+      (closeSidePanelEvt)="closeSidePanel()"
+      [elem]="sidePanelTarget">
+    </app-property-side-panel>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<div
+  class="side-panel">
+  <div class="title-container">
+    <h3>Property Inspector</h3>
+    <mat-icon 
+      class="close-icon" 
+      aria-hidden="false" 
+      aria-label="close icon" 
+      fontIcon="close"
+      (click)="onCloseSidePanel()">
+    </mat-icon>
+  </div>
+  <div class="properties-container">
+    <input #elText type="text" [(ngModel)]="elemText" (input)="onPropertyChange('text', elText.value)" />
+  </div>
+</div>

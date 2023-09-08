@@ -18,6 +18,7 @@ export class BuildWebsitesComponent implements OnInit {
   tools: any;
   layoutSelected: boolean = false;
   showSidePanel: boolean = false;
+  sidePanelTarget: any;
 
   layoutIcons: any = [];
   textToolIcons: any = [];
@@ -118,7 +119,7 @@ export class BuildWebsitesComponent implements OnInit {
           this.layoutSelected = true;
           this.toastr.success("Colored borders will be removed on deploying website");
         } else if (Constants.TEXT_TOOL_KEYS.indexOf(key) !== -1) {
-          ToolsUtils.addElement(target, key, this.getOpenSidePanelHandler());
+          ToolsUtils.addElement(target, key, this.openSidePanelHandler);
         }  
       }
     }
@@ -128,11 +129,10 @@ export class BuildWebsitesComponent implements OnInit {
     this.showSidePanel = false;
   }
 
-  getOpenSidePanelHandler() {
-    const self = this;
-
-    return () => {
-      self.showSidePanel = true;
-    };
+  openSidePanelHandler = (el: any) => {
+    if (el) {
+      this.sidePanelTarget = el;
+      this.showSidePanel = true;
+    }
   }
 }
