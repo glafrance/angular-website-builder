@@ -20,6 +20,7 @@ export default class Constants {
   public static BIO_BLURB = "bioBlurb";
   public static INVALID = "INVALID";
   public static PROFILE_IMAGE = "profileImage";
+  public static DROP_CONTENT_MESSAGE = "Drop web page content here";
 
   // Constants for backend calls, HTTP methods.
   public static HTTP_METHODS = {

@@ -14,6 +14,7 @@ export default class LayoutUtils {
     switch (key) {
       case "single":
         const singleContainer = LayoutUtils.createContainer("98.5%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);
+        singleContainer.textContent = Constants.DROP_CONTENT_MESSAGE;
         target.appendChild(singleContainer);
         break;
       case "2col":
@@ -25,6 +26,9 @@ export default class LayoutUtils {
 
         col1 = LayoutUtils.createContainer("49%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col2 = LayoutUtils.createContainer("49%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -42,6 +46,9 @@ export default class LayoutUtils {
         row1 = LayoutUtils.createContainer("98.5%", "49%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         row2 = LayoutUtils.createContainer("98.5%", "49%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
         target.appendChild(parentContainer);
@@ -56,6 +63,10 @@ export default class LayoutUtils {
         col1 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col2 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col3 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -75,6 +86,10 @@ export default class LayoutUtils {
         row2 = LayoutUtils.createContainer("98.5%", "33%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         row3 = LayoutUtils.createContainer("98.5%", "33%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
         parentContainer.appendChild(row3);
@@ -91,6 +106,11 @@ export default class LayoutUtils {
         col2 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col3 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col4 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col4.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -112,6 +132,11 @@ export default class LayoutUtils {
         row3 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         row4 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row4.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
         parentContainer.appendChild(row3);
@@ -131,6 +156,11 @@ export default class LayoutUtils {
         cont3 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         cont4 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        cont1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont4.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(cont1);
         parentContainer.appendChild(cont2);
         parentContainer.appendChild(cont3);
@@ -149,6 +179,11 @@ export default class LayoutUtils {
         col1 = LayoutUtils.createContainer("50%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col2 = LayoutUtils.createContainer("50%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        header.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
         cont1.style.display = "flex";
@@ -179,6 +214,11 @@ export default class LayoutUtils {
         row2 = LayoutUtils.createContainer("98.5%", "40%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        header.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
@@ -198,6 +238,12 @@ export default class LayoutUtils {
         col2 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         col3 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        header.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
         cont1.style.display = "flex";
@@ -230,6 +276,12 @@ export default class LayoutUtils {
         row3 = LayoutUtils.createContainer("98.5%", "26%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
+        header.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
@@ -251,6 +303,13 @@ export default class LayoutUtils {
         cont3 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         cont4 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
         footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
+
+        header.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont1.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont4.textContent = Constants.DROP_CONTENT_MESSAGE;
+        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
 
         const subContainer1 = LayoutUtils.createContainer("99.75%", "78%");  
         subContainer1.style.display = "flex";
