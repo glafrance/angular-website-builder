@@ -17,7 +17,7 @@ export class BuildWebsitesComponent implements OnInit {
 
   tools: any;
   layoutSelected: boolean = false;
-
+  showSidePanel: boolean = false;
 
   layoutIcons: any = [];
   textToolIcons: any = [];
@@ -118,9 +118,21 @@ export class BuildWebsitesComponent implements OnInit {
           this.layoutSelected = true;
           this.toastr.success("Colored borders will be removed on deploying website");
         } else if (Constants.TEXT_TOOL_KEYS.indexOf(key) !== -1) {
-          ToolsUtils.addElement(target, key);
+          ToolsUtils.addElement(target, key, this.getOpenSidePanelHandler());
         }  
       }
     }
+  }
+
+  closeSidePanel() {
+    this.showSidePanel = false;
+  }
+
+  getOpenSidePanelHandler() {
+    const self = this;
+
+    return () => {
+      self.showSidePanel = true;
+    };
   }
 }

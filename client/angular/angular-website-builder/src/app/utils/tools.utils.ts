@@ -1,10 +1,11 @@
 import Constants from "../constants/constants";
 
 export default class ToolsUtils {
-  public static addElement (target: any, tag: string) {
+  public static addElement (target: any, tag: string, clickHandler?:any ) {
     if (target && tag) {
       const el = document.createElement(tag);
       el.style.cursor = "pointer";
+      el.addEventListener("click", clickHandler);
 
       if (target.textContent === Constants.DROP_CONTENT_MESSAGE) {
         target.textContent = "";

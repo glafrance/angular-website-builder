@@ -48,12 +48,31 @@
           (dragstart)="onDragIconStart($event, icon)" />
       </div>
     </div>
-  <div 
-    class="website-container"
-    (mouseover)="onHideToolbarDetails()"
-    droppable
-    (dragenter)="onDragEnter($event)"
-    (dragleave)="onDragLeave($event)"
-    (dragover)="onDragOver($event)"
-    (drop)="onDrop($event)"></div>
+  </div>
+  <div class="build-area">
+    <div 
+      class="website-container"
+      (mouseover)="onHideToolbarDetails()"
+      droppable
+      (dragenter)="onDragEnter($event)"
+      (dragleave)="onDragLeave($event)"
+      (dragover)="onDragOver($event)"
+      (drop)="onDrop($event)">
+    </div>
+    <div
+      #sidePanel
+      *ngIf="showSidePanel" 
+      class="side-panel">
+      <div class="title-container">
+        <h3>Property Inspector</h3>
+        <mat-icon 
+          class="close-icon" 
+          aria-hidden="false" 
+          aria-label="close icon" 
+          fontIcon="close"
+          (click)="closeSidePanel()">
+        </mat-icon>
+      </div>
+    </div>
+  </div>
 </div>

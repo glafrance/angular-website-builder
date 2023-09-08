@@ -39,17 +39,24 @@
   font-size: 24px;
   margin: 0;
 }
-.website-container {
+.build-area {
   position: absolute;
   top: 130px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 80vh;
   display: flex;
   align-items: center;
+}
+.website-container {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  height: 100%;
 }
 .dragging-over {
   border: 2px dashed $lightBlue900;
@@ -62,4 +69,25 @@
 }
 .disabled-icon p {
   color: #aaa;
+}
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  width: 500px;  
+  height: 100%;
+  border: 1px solid $blueGray600;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+}
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 20px;
+  margin: 0;
 }
