@@ -13,22 +13,15 @@ export default class LayoutUtils {
 
     switch (key) {
       case "single":
-        const singleContainer = LayoutUtils.createContainer("98.5%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);
-        singleContainer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        const singleContainer = LayoutUtils.createContainer("98.5%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });
         target.appendChild(singleContainer);
         break;
       case "2col":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer);
 
-        col1 = LayoutUtils.createContainer("49%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col2 = LayoutUtils.createContainer("49%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col1 = LayoutUtils.createContainer("49%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col2 = LayoutUtils.createContainer("49%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -36,18 +29,10 @@ export default class LayoutUtils {
         break;
       case "2row":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
-
-        row1 = LayoutUtils.createContainer("98.5%", "49%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row2 = LayoutUtils.createContainer("98.5%", "49%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row1 = LayoutUtils.createContainer("98.5%", "49%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row2 = LayoutUtils.createContainer("98.5%", "49%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
@@ -55,18 +40,12 @@ export default class LayoutUtils {
         break;
       case "3col":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer);
 
-        col1 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col2 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col3 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
 
-        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col1 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col2 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col3 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -75,20 +54,11 @@ export default class LayoutUtils {
         break;
       case "3row":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
-
-        row1 = LayoutUtils.createContainer("98.5%", "33%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row2 = LayoutUtils.createContainer("98.5%", "33%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row3 = LayoutUtils.createContainer("98.5%", "33%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row1 = LayoutUtils.createContainer("98.5%", "33%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row2 = LayoutUtils.createContainer("98.5%", "33%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row3 = LayoutUtils.createContainer("98.5%", "33%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
@@ -97,20 +67,12 @@ export default class LayoutUtils {
         break;
       case "4col":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer);
 
-        col1 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col2 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col3 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col4 = LayoutUtils.createContainer("24%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col4.textContent = Constants.DROP_CONTENT_MESSAGE;
+        col1 = LayoutUtils.createContainer("24%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col2 = LayoutUtils.createContainer("24%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col3 = LayoutUtils.createContainer("24%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col4 = LayoutUtils.createContainer("24%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(col1);
         parentContainer.appendChild(col2);
@@ -120,22 +82,12 @@ export default class LayoutUtils {
         break;
       case "4row":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
-
-        row1 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row2 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row3 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row4 = LayoutUtils.createContainer("98.5%", "24%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row4.textContent = Constants.DROP_CONTENT_MESSAGE;
+        row1 = LayoutUtils.createContainer("98.5%", "24%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row2 = LayoutUtils.createContainer("98.5%", "24%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row3 = LayoutUtils.createContainer("98.5%", "24%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row4 = LayoutUtils.createContainer("98.5%", "24%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(row1);
         parentContainer.appendChild(row2);
@@ -145,21 +97,13 @@ export default class LayoutUtils {
         break;
       case "4cont":
         parentContainer = LayoutUtils.createContainer("98.5%", "97%");
-        parentContainer.style.display = "flex";
+        LayoutUtils.setCommonFlexProperties(parentContainer);
         parentContainer.style.flexWrap = "wrap";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
 
-        cont1 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont2 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont3 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont4 = LayoutUtils.createContainer("48%", "45%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        cont1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont4.textContent = Constants.DROP_CONTENT_MESSAGE;
+        cont1 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont2 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont3 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont4 = LayoutUtils.createContainer("48%", "45%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(cont1);
         parentContainer.appendChild(cont2);
@@ -169,29 +113,15 @@ export default class LayoutUtils {
         break;
       case "hf2col":
         parentContainer = LayoutUtils.createContainer("99%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col1 = LayoutUtils.createContainer("50%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col2 = LayoutUtils.createContainer("50%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        header.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col1 = LayoutUtils.createContainer("50%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col2 = LayoutUtils.createContainer("50%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
-        cont1.style.display = "flex";
-        cont1.style.alignItems = "center";
-        cont1.style.justifyContent = "center";
-        cont1.style.gap = "10px";
-        cont1.style.padding = "0";
-        cont1.style.border = "none";
+        LayoutUtils.setCommonFlexProperties(cont1, { noPadding: true, noBorder: true });
 
         cont1.appendChild(col1);
         cont1.appendChild(col2);
@@ -203,21 +133,12 @@ export default class LayoutUtils {
         break;
       case "hf2row":
         parentContainer = LayoutUtils.createContainer("99%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row1 = LayoutUtils.createContainer("98.5%", "40%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row2 = LayoutUtils.createContainer("98.5%", "40%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        header.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row1 = LayoutUtils.createContainer("98.5%", "40%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row2 = LayoutUtils.createContainer("98.5%", "40%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
@@ -227,31 +148,16 @@ export default class LayoutUtils {
         break;
       case "hf3col":
         parentContainer = LayoutUtils.createContainer("99%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col1 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col2 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        col3 = LayoutUtils.createContainer("33%", "97%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        header.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        col3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col1 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col2 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        col3 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
-        cont1.style.display = "flex";
-        cont1.style.alignItems = "center";
-        cont1.style.justifyContent = "center";
-        cont1.style.gap = "10px";
-        cont1.style.padding = "0";
-        cont1.style.border = "none";
+        LayoutUtils.setCommonFlexProperties(cont1, { noPadding: true, noBorder: true });
 
         cont1.appendChild(col1);
         cont1.appendChild(col2);
@@ -264,23 +170,13 @@ export default class LayoutUtils {
         break;
       case "hf3row":
         parentContainer = LayoutUtils.createContainer("99%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row1 = LayoutUtils.createContainer("98.5%", "26%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row2 = LayoutUtils.createContainer("98.5%", "26%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        row3 = LayoutUtils.createContainer("98.5%", "26%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        header.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        row3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row1 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row2 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        row3 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
@@ -291,44 +187,23 @@ export default class LayoutUtils {
         break;
       case "hf4cont":
         parentContainer = LayoutUtils.createContainer("99%", "97%");
-        parentContainer.style.display = "flex";
-        parentContainer.style.flexDirection = "column";
-        parentContainer.style.alignItems = "center";
-        parentContainer.style.justifyContent = "center";
-        parentContainer.style.gap = "10px";
+        LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont1 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont2 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont3 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        cont4 = LayoutUtils.createContainer("50%", "91%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-        footer = LayoutUtils.createContainer("98.5%", "10%", onDragEnter, onDragLeave, onDragOver, onDrop);  
-
-        header.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont1.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont2.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont3.textContent = Constants.DROP_CONTENT_MESSAGE;
-        cont4.textContent = Constants.DROP_CONTENT_MESSAGE;
-        footer.textContent = Constants.DROP_CONTENT_MESSAGE;
+        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont1 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont2 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont3 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        cont4 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
 
         const subContainer1 = LayoutUtils.createContainer("99.75%", "78%");  
-        subContainer1.style.display = "flex";
-        subContainer1.style.alignItems = "center";
-        subContainer1.style.justifyContent = "center";
-        subContainer1.style.gap = "10px";
-        subContainer1.style.padding = "0";
-        subContainer1.style.border = "none";
+        LayoutUtils.setCommonFlexProperties(subContainer1, { noPadding: true, noBorder: true });
 
         subContainer1.appendChild(cont1);
         subContainer1.appendChild(cont2);
 
         const subContainer2 = LayoutUtils.createContainer("99.75%", "78%");  
-        subContainer2.style.display = "flex";
-        subContainer2.style.alignItems = "center";
-        subContainer2.style.justifyContent = "center";
-        subContainer2.style.gap = "10px";
-        subContainer2.style.padding = "0";
-        subContainer2.style.border = "none";
+        LayoutUtils.setCommonFlexProperties(subContainer2, { noPadding: true, noBorder: true });
 
         subContainer2.appendChild(cont3);
         subContainer2.appendChild(cont4);
@@ -342,14 +217,26 @@ export default class LayoutUtils {
     }
   }
 
-  public static createContainer (
-    width: string, 
-    height: string, 
-    dragEnterHandler?: any, 
-    dragLeaveHandler?: any, 
-    dragOverHandler?: any, 
-    dropHandler?: any
-  ) {
+  public static setCommonFlexProperties (el: any, config?: any) {
+    el.style.display = "flex";
+    el.style.alignItems = "center";
+    el.style.justifyContent = "center";
+    el.style.gap = "10px";
+
+    if (config && config.column) {
+      el.style.flexDirection = "column";
+    }
+
+    if (config && config.noPadding) {
+      el.style.padding = "0";
+    }
+
+    if (config && config.noBorder) {
+      el.style.border = "none";
+    }
+  }
+
+  public static createContainer (width: string, height: string, config?: any) {
     // Create a single div container.
     const div = document.createElement("div");
     div.style.width = width;
@@ -357,14 +244,20 @@ export default class LayoutUtils {
     div.style.padding = "10px";
     LayoutUtils.addRandomBorder(div);
 
-    if (dragEnterHandler && dragLeaveHandler && dragOverHandler && dropHandler) {
-      LayoutUtils.addDragDropHandlers(
-        div, 
-        dragEnterHandler, 
-        dragLeaveHandler, 
-        dragOverHandler, 
-        dropHandler
-      );  
+    if (config) {
+      if (config.dragEnterHandler && config.dragLeaveHandler && config.dragOverHandler && config.dropHandler) {
+        LayoutUtils.addDragDropHandlers(
+          div, 
+          config.dragEnterHandler, 
+          config.dragLeaveHandler, 
+          config.dragOverHandler, 
+          config.dropHandler
+        );  
+      }
+      
+      if (config.addPlaceholder) {
+        div.textContent = Constants.DROP_CONTENT_MESSAGE;
+      }
     }
 
     return div;
@@ -395,37 +288,10 @@ export default class LayoutUtils {
   }
 
   public static borderColors = [
-    "#EF5350",
-    "#B71C1C",
-    "#F06292",
-    "#880E4F",
-    "#BA68C8",
-    "#4A148C",
-    "#9575CD",
-    "#311B92",
-    "#7986CB",
-    "#1A237E",
-    "#64B5F6",
-    "#0D47A1",
-    "#4FC3F7",
-    "#01579B",
-    "#4DD0E1",
-    "#4DB6AC",
-    "#004D40",
-    "#81C784",
-    "#1B5E20",
-    "#AED581",
-    "#33691E",
-    "#827717",
-    "#F57F17",
-    "#FF6F00",
-    "#FFB74D",
-    "#E65100",
-    "#FF8A65",
-    "#BF360C",
-    "#A1887F",
-    "#3E2723",
-    "#90A4AE",
-    "#263238"
+    "#EF5350", "#B71C1C", "#F06292", "#880E4F", "#BA68C8", "#4A148C", "#9575CD",
+    "#311B92", "#7986CB", "#1A237E", "#64B5F6", "#0D47A1", "#4FC3F7", "#01579B",
+    "#4DD0E1", "#4DB6AC", "#004D40", "#81C784", "#1B5E20", "#AED581", "#33691E",
+    "#827717", "#F57F17", "#FF6F00", "#FFB74D", "#E65100", "#FF8A65", "#BF360C",
+    "#A1887F", "#3E2723", "#90A4AE", "#263238"
   ];
 }
