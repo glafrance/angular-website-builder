@@ -9,7 +9,7 @@ export default class LayoutUtils {
     onDragOver: any, 
     onDrop: any
   ) {
-    let parentContainer, col1, col2, col3, col4, row1, row2, row3, row4, cont1, cont2, cont3, cont4, header, footer;
+    let parentContainer, col1, col2, col3, col4, row1, row2, row3, row4, cont1, cont2, cont3, cont4, header, footer, sub1, sub2, sub3, sub4, sub5, sub6;
 
     switch (key) {
       case "single":
@@ -115,10 +115,11 @@ export default class LayoutUtils {
         parentContainer = LayoutUtils.createContainer("99%", "97%");
         LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        header = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
+
         col1 = LayoutUtils.createContainer("50%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         col2 = LayoutUtils.createContainer("50%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
         LayoutUtils.setCommonFlexProperties(cont1, { noPadding: true, noBorder: true });
@@ -135,10 +136,10 @@ export default class LayoutUtils {
         parentContainer = LayoutUtils.createContainer("99%", "97%");
         LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        header = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
         row1 = LayoutUtils.createContainer("98.5%", "40%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         row2 = LayoutUtils.createContainer("98.5%", "40%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
 
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
@@ -150,11 +151,11 @@ export default class LayoutUtils {
         parentContainer = LayoutUtils.createContainer("99%", "97%");
         LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        header = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
         col1 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         col2 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         col3 = LayoutUtils.createContainer("33%", "97%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
 
         cont1 = LayoutUtils.createContainer("99.75%", "78%");  
         LayoutUtils.setCommonFlexProperties(cont1, { noPadding: true, noBorder: true });
@@ -172,11 +173,11 @@ export default class LayoutUtils {
         parentContainer = LayoutUtils.createContainer("99%", "97%");
         LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        header = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
         row1 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         row2 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         row3 = LayoutUtils.createContainer("98.5%", "26%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
 
         parentContainer.appendChild(header);
         parentContainer.appendChild(row1);
@@ -189,12 +190,12 @@ export default class LayoutUtils {
         parentContainer = LayoutUtils.createContainer("99%", "97%");
         LayoutUtils.setCommonFlexProperties(parentContainer, { column: true });
 
-        header = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        header = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
         cont1 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         cont2 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         cont3 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
         cont4 = LayoutUtils.createContainer("50%", "91%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
-        footer = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true });  
+        footer = this.createHeaderFooter(onDragEnter, onDragLeave, onDragOver, onDrop);
 
         const subContainer1 = LayoutUtils.createContainer("99.75%", "78%");  
         LayoutUtils.setCommonFlexProperties(subContainer1, { noPadding: true, noBorder: true });
@@ -215,6 +216,27 @@ export default class LayoutUtils {
         target.appendChild(parentContainer);
         break;
     }
+  }
+
+  public static createHeaderFooter (onDragEnter: any, onDragLeave: any, onDragOver: any, onDrop: any) {
+    const cont = LayoutUtils.createContainer("98.5%", "10%", { onDragEnter, onDragLeave, onDragOver, onDrop });  
+    LayoutUtils.setCommonFlexProperties(cont);
+    cont.style.justifyContent = "space-between";
+
+    const sub1 = LayoutUtils.createContainer("33%", "90%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true, noPadding: true });  
+    const sub2 = LayoutUtils.createContainer("33%", "90%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true, noPadding: true });  
+    const sub3 = LayoutUtils.createContainer("33%", "90%", { onDragEnter, onDragLeave, onDragOver, onDrop, addPlaceholder: true, noPadding: true});  
+    LayoutUtils.setCommonFlexProperties(sub1);
+    LayoutUtils.setCommonFlexProperties(sub2);
+    LayoutUtils.setCommonFlexProperties(sub3);
+    sub1.style.justifyContent = "flex-start";
+    sub3.style.justifyContent = "flex-end";
+
+    cont.appendChild(sub1);
+    cont.appendChild(sub2);
+    cont.appendChild(sub3);
+
+    return cont;
   }
 
   public static setCommonFlexProperties (el: any, config?: any) {

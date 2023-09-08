@@ -3,6 +3,7 @@ import { ToastrService } from "ngx-toastr";
 
 import Constants from "src/app/constants/constants";
 import LayoutUtils from "src/app/utils/layout.utils";
+import ToolsUtils from "src/app/utils/tools.utils";
 import Utils from "src/app/utils/utils";
 
 @Component({
@@ -111,10 +112,14 @@ export class BuildWebsitesComponent implements OnInit {
     if (data) {
       const key: string = Utils.getToolKey(data);
 
-      if (key && Constants.LAYOUT_KEYS.indexOf(key) !== -1) {
-        LayoutUtils.addLayout(key, target, this.onDragEnter, this.onDragLeave, this.onDragOver, this.onDrop);
-        this.layoutSelected = true;
-        this.toastr.success("Colored borders will be removed on deploying website");
+      if (key) {
+        if (Constants.LAYOUT_KEYS.indexOf(key) !== -1) {
+          LayoutUtils.addLayout(key, target, this.onDragEnter, this.onDragLeave, this.onDragOver, this.onDrop);
+          this.layoutSelected = true;
+          this.toastr.success("Colored borders will be removed on deploying website");
+        } else if (Constants.TEXT_TOOL_KEYS.indexOf(key) !== -1) {
+          ToolsUtils.addElement(target, key);
+        }  
       }
     }
   }
