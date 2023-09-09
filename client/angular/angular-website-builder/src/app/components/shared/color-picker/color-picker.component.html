@@ -1,0 +1,7 @@
+<div class="color-container">
+  <div
+    *ngFor="let col of colorInPalette" 
+    class="color"
+    [title]="col"
+    [ngStyle]="{backgroundColor: col}"></div>
+</div>
