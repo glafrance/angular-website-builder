@@ -60,123 +60,38 @@ export default class Constants {
   public static SIGNED_IN_LOCAL_STORAGE_KEY = "signed_in";
   public static USER_ID_LOCAL_STORAGE_KEY = "userId";
 
-  // Data for tools.
-  public static TOOLS = {
-    LAYOUT: {
-      "single": {
-        tooltip: "One single container"
-      },
-      "2col": {
-        tooltip: "Two columns"
-      },
-      "2row": {
-        tooltip: "Two rows"
-      },
-      "3col": {
-        tooltip: "Three columns"
-      },
-      "3row": {
-        tooltip: "Three rows"
-      },
-      "4col": {
-        tooltip: "Four columns"
-      },
-      "4row": {
-        tooltip: "Four rows"
-      },
-      "4cont": {
-        tooltip: "Four containers"
-      },
-      "hf2col": {
-        tooltip: "Header, footer and two columns"
-      },
-      "hf2row": {
-        tooltip: "Header, footer and two rows"
-      },
-      "hf3col": {
-        tooltip: "Header, footer and three columns"
-      },
-      "hf3row": {
-        tooltip: "Header, footer and three rows"
-      },
-      "hf4cont": {
-        tooltip: "Header, footer and four containers"
-      }
-    },
-    TEXT:{
-      "h1": {
-        tooltip: "Heading H1 element"
-      },
-      "h2": {
-        tooltip: "Heading H2 element"
-      },
-      "h3": {
-        tooltip: "Heading H3 element"
-      },
-      "h4": {
-        tooltip: "Heading H4 element"
-      },
-      "h5": {
-        tooltip: "Heading H5 element"
-      },
-      "h6": {
-        tooltip: "Heading H6 element"
-      },
-      "p": {
-        tooltip: "Paragraph element"
-      }
-    }
-  };
-
-  public static LAYOUT_ICONS: any = [
-    "../../../assets/images/layout-icons/single.png",
-    "../../../assets/images/layout-icons/2col.png",
-    "../../../assets/images/layout-icons/2row.png",
-    "../../../assets/images/layout-icons/3col.png",
-    "../../../assets/images/layout-icons/3row.png",
-    "../../../assets/images/layout-icons/4col.png",
-    "../../../assets/images/layout-icons/4row.png",
-    "../../../assets/images/layout-icons/4cont.png",
-    "../../../assets/images/layout-icons/hf2col.png",
-    "../../../assets/images/layout-icons/hf2row.png",
-    "../../../assets/images/layout-icons/hf3col.png",
-    "../../../assets/images/layout-icons/hf3row.png",
-    "../../../assets/images/layout-icons/hf4cont.png"
+  // Properties for elements used to build web pages.
+  public static ITEM_PROPERTIES = [
+    { key: "single", type: "layout", tooltip: "One single container" },
+    { key: "2col", type: "layout", tooltip: "Two columns" },
+    { key: "2row", type: "layout", tooltip: "Two rows" },
+    { key: "3col", type: "layout", tooltip: "Three columns" },
+    { key: "3row", type: "layout", tooltip: "Three rows" },
+    { key: "4col", type: "layout", tooltip: "Four columns" },
+    { key: "4row", type: "layout", tooltip: "Four rows" },
+    { key: "4cont", type: "layout", tooltip: "Four containers" },
+    { key: "hf2col", type: "layout", tooltip: "Header, footer and two columns" },
+    { key: "hf2row", type: "layout", tooltip: "Header, footer and two rows" },
+    { key: "hf3col", type: "layout", tooltip: "Header, footer and three columns" },
+    { key: "hf3row", type: "layout", tooltip: "Header, footer and three rows" },
+    { key: "hf4cont", type: "layout", tooltip: "Header, footer and four containers" },
+    { key: "h1", type: "text", tooltip: "Heading H1 element" },
+    { key: "h2", type: "text", tooltip: "Heading H2 element" },
+    { key: "h3", type: "text", tooltip: "Heading H3 element" },
+    { key: "h4", type: "text", tooltip: "Heading H4 element" },
+    { key: "h5", type: "text", tooltip: "Heading H5 element" },
+    { key: "h6", type: "text", tooltip: "Heading H6 element" },
+    { key: "p", type: "text", tooltip: "Paragraph element" }
   ];
 
-  public static LAYOUT_KEYS = [
-    "single",
-    "2col",
-    "2row",
-    "3col",
-    "3row",
-    "4col",
-    "4row",
-    "4cont",
-    "hf2col",
-    "hf2row",
-    "hf3col",
-    "hf3row",
-    "hf4cont"
-  ];
+  public static PROPERTY_PIXEL_VALUES: any = {
+    "font-size": true,
+    "border-width": true
+  }
 
-  public static TEXT_TOOL_ICONS: any = [
-    "../../../assets/images/text-tool-icons/h1.png",
-    "../../../assets/images/text-tool-icons/h2.png",
-    "../../../assets/images/text-tool-icons/h3.png",
-    "../../../assets/images/text-tool-icons/h4.png",
-    "../../../assets/images/text-tool-icons/h5.png",
-    "../../../assets/images/text-tool-icons/h6.png",
-    "../../../assets/images/text-tool-icons/p.png"
-  ];
-
-  public static TEXT_TOOL_KEYS = [
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "p"
-  ];
+  public static PROPERTY_COLOR_VALUES: any = {
+    "color": true,
+    "background-color": true,
+    "border-color": true,
+  }
 }

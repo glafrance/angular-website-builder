@@ -17,10 +17,12 @@
   width: 178px;
   position: absolute;
   top: 20px;
+  z-index: 9999;
 }
 .color {
   width: 16px;
   height: 16px;
   border: 1px solid black;
   cursor: pointer;
+  opacity: 1.0;
 }

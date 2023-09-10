@@ -23,14 +23,14 @@
       *ngIf="showLayouts && !layoutSelected"
       class="toolbar-item-details">
       <div 
-        *ngFor="let icon of layoutIcons" 
+        *ngFor="let layout of layoutItems" 
         class="icon-container"
         draggable
-        [title]="getTooltip('layout', icon)">
+        [title]="layout.tooltip">
         <img 
           class="icon" 
-          [src]="icon"
-          (dragstart)="onDragIconStart($event, icon)" />
+          [src]="layout.iconPath"
+          (dragstart)="onDragIconStart($event, layout)" />
       </div>
     </div>
 
@@ -38,14 +38,14 @@
       *ngIf="showTextControls && layoutSelected"
       class="toolbar-item-details">
       <div 
-        *ngFor="let icon of textToolIcons" 
+        *ngFor="let text of textElementItems" 
         class="icon-container"
         draggable
-        [title]="getTooltip('text', icon)">
+        [title]="text.tooltip">
         <img 
           class="icon" 
-          [src]="icon"
-          (dragstart)="onDragIconStart($event, icon)" />
+          [src]="text.iconPath"
+          (dragstart)="onDragIconStart($event, text)" />
       </div>
     </div>
   </div>

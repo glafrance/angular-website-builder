@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 import Constants from "src/app/constants/constants";
 import { PropertyService } from "src/app/services/property.service";
+import ToolsUtils from "src/app/utils/tools.utils";
 import Utils from "src/app/utils/utils";
 
 @Component({
@@ -24,10 +25,10 @@ export class PropertySidePanelComponent implements OnInit {
   @Output() closeSidePanelEvt: EventEmitter<null> = new EventEmitter<null>();
 
   elementProperties: any = {
-    tagName: "",
-    textContent: "",
+    "tagName": "",
+    "textContent": "",
     "font-size": "",
-    color: "",
+    "color": "",
     "background-color": "",
     "border-width": 0,
     "border-style": "",
@@ -63,30 +64,12 @@ export class PropertySidePanelComponent implements OnInit {
         this.elementProperties.textContent = this._elem.textContent;
       }
 
-      let fontSize: any = window.getComputedStyle(this._elem, null).getPropertyValue('font-size');
-      fontSize = fontSize.replace("px", "");
-      fontSize = parseFloat(fontSize);  
-      this.elementProperties["font-size"] = fontSize;
-
-      let color = window.getComputedStyle(this._elem, null).getPropertyValue('color');
-      color = Utils.rgbToHex(color);
-      this.elementProperties.color = color;
-      
-      let backgroundColor = window.getComputedStyle(this._elem, null).getPropertyValue('background-color');
-      backgroundColor = Utils.rgbToHex(backgroundColor);
-      this.elementProperties["background-color"] = backgroundColor;
-
-      let borderWidth: any = window.getComputedStyle(this._elem, null).getPropertyValue('border-width');
-      borderWidth = borderWidth.replace("px", "");
-      borderWidth = parseFloat(borderWidth);  
-      this.elementProperties["border-width"] = borderWidth;
-
-      let borderStyle = window.getComputedStyle(this._elem, null).getPropertyValue('border-style');
-      this.elementProperties["border-style"] = borderStyle;
-
-      let borderColor = window.getComputedStyle(this._elem, null).getPropertyValue('border-color');
-      borderColor = Utils.rgbToHex(borderColor);
-      this.elementProperties["border-color"] = borderColor;
+      this.elementProperties["font-size"] = ToolsUtils.getElementPropertyValue(this._elem, 'font-size');
+      this.elementProperties["color"] = ToolsUtils.getElementPropertyValue(this._elem, 'color');
+      this.elementProperties["background-color"] = ToolsUtils.getElementPropertyValue(this._elem, 'background-color');
+      this.elementProperties["border-color"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-color');
+      this.elementProperties["border-width"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-width');
+      this.elementProperties["border-style"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-style');
     }
   }
 
@@ -98,26 +81,47 @@ export class PropertySidePanelComponent implements OnInit {
         this._elem.textContent = value;
       }
       this.elementProperties.textContent = this._elem.textContent;
-    } else if (prop === "text-color") {
-      this._elem.style.color = value;
-      this.elementProperties.color = value;
-    } else if (prop === "background-color") {
-      this._elem.style.backgroundColor = value;
-      this.elementProperties["background-color"] = value;
-    } else if (prop === "font-size") {
-      this._elem.style.fontSize = `${value}px`;
-      this.elementProperties["font-size"] = value;
-    } else if (prop === "border-width") {
-      this._elem.style.borderWidth = `${value}px`;
-      this.elementProperties["border-width"] = value;
-    } else if (prop === "border-style") {
-      this._elem.style.borderStyle = value;
-      this.elementProperties["border-style"] = value;
-    } else if (prop === "border-color") {
-      this._elem.style.borderColor = value;
-      this.elementProperties["border-color"] = value;
+    } else {      
+      this.elementProperties[prop] = value;
+
+      if (Constants.PROPERTY_PIXEL_VALUES[prop]) {
+        this._elem.style[prop] = `${value}px`;
+      } else {
+        this._elem.style[prop] = value;
+      }  
     }
   }
+
+// } else if (prop === "background-color") {
+//   this._elem.style.backgroundColor = value;
+//   this.elementProperties["background-color"] = value;
+// } else if (prop === "font-size") {
+//   this._elem.style.fontSize = `${value}px`;
+//   this.elementProperties["font-size"] = value;
+// } else if (prop === "border-width") {
+//   this._elem.style.borderWidth = `${value}px`;
+//   this.elementProperties["border-width"] = value;
+// } else if (prop === "border-style") {
+//   this._elem.style.borderStyle = value;
+//   this.elementProperties["border-style"] = value;
+// } else if (prop === "border-color") {
+//   this._elem.style.borderColor = value;
+//   this.elementProperties["border-color"] = value;
+// }
+
+  // onPropertyChange(value: any, prop: string) {
+  //   if (prop === "text") {
+  //     if (value === "") {
+  //       this._elem.textContent = Constants.ADD_TEXT_HERE;
+  //     } else {
+  //       this._elem.textContent = value;
+  //     }
+  //     this.elementProperties.textContent = this._elem.textContent;
+  //   } else {
+  //     this._elem.style[prop] = value;
+  //     this.elementProperties[prop] = value;
+  //   }
+  // }
 
   resetPanel() {
     this._elem = null;
