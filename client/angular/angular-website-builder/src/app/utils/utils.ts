@@ -69,4 +69,35 @@ export default class Utils {
 
     return key;
   }  
+
+  public static decimalToHex(value: any) {
+    if (typeof value === "string") {
+      value = parseInt(value);
+    }
+
+    let hex = value.toString(16);
+    hex = hex.length == 1 ? "0" + hex : hex;
+    return hex;
+  }
+  
+  public static rgbToHex(value: any) {
+    let result = "#000000", red, green, blue;
+    const regex = /.+?(\d+),\s*(\d+),\s*(\d+).*/;
+    const match = value.match(regex);
+
+    if (match && match.length === 4) {
+      red = match[1];
+      green = match[2];
+      blue = match[3];
+
+      if (
+        Utils.isNotNullOrUndefined(red) && 
+        Utils.isNotNullOrUndefined(green) && 
+        Utils.isNotNullOrUndefined(blue)
+      ) {
+        result = `#${Utils.decimalToHex(red)}${Utils.decimalToHex(green)}${Utils.decimalToHex(blue)}`;
+      }  
+    }
+    return result;
+  }
 }

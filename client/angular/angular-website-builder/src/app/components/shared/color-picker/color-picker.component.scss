@@ -1,10 +1,26 @@
+.content-container {
+  position: relative;
+}
+.selector-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.selected-swatch {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
 .color-container {
   display: flex;
   flex-wrap: wrap;
   width: 178px;
+  position: absolute;
+  top: 20px;
 }
 .color {
   width: 16px;
   height: 16px;
   border: 1px solid black;
+  cursor: pointer;
 }

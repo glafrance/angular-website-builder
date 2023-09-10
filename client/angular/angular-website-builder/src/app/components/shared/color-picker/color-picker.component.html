@@ -1,7 +1,20 @@
-<div class="color-container">
-  <div
-    *ngFor="let col of colorInPalette" 
-    class="color"
-    [title]="col"
-    [ngStyle]="{backgroundColor: col}"></div>
+<div class="content-container">
+  <div class="selector-container">
+    <label>{{label}}</label>
+    <div 
+      class="selected-swatch" 
+      [ngStyle]="{backgroundColor: selectedColor}"
+      (click)="toggleShowPalette()">
+    </div>
+  </div>
+  <div 
+    *ngIf="showPalette"
+    class="color-container">
+    <div
+      *ngFor="let col of colorInPalette" 
+      class="color"
+      [title]="col"
+      [ngStyle]="{backgroundColor: col}"
+      (click)="onSelectColor(col)"></div>
+  </div>
 </div>

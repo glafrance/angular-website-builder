@@ -3,6 +3,7 @@ import { ToastrService } from "ngx-toastr";
 
 import Constants from "src/app/constants/constants";
 import LayoutUtils from "src/app/utils/layout.utils";
+import { PropertyService } from "src/app/services/property.service";
 import ToolsUtils from "src/app/utils/tools.utils";
 import Utils from "src/app/utils/utils";
 
@@ -23,7 +24,10 @@ export class BuildWebsitesComponent implements OnInit {
   layoutIcons: any = [];
   textToolIcons: any = [];
 
-  constructor(private toastr: ToastrService) {}
+  constructor(
+    private propertyService: PropertyService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.tools = Constants.TOOLS;
@@ -119,6 +123,7 @@ export class BuildWebsitesComponent implements OnInit {
           this.layoutSelected = true;
           this.toastr.success("Colored borders will be removed on deploying website");
         } else if (Constants.TEXT_TOOL_KEYS.indexOf(key) !== -1) {
+          this.propertyService.resetPropertyPane();
           ToolsUtils.addElement(target, key, this.openSidePanelHandler);
         }  
       }
