@@ -1,0 +1,39 @@
+<div>
+  <div class="selector-container">
+    <p class="toolbar-label">Alignment: </p>
+    <div class="alignments-container">
+      <mat-icon
+        class="align-icon" 
+        [ngClass]="{'active': selectedAlignment === 'left' || selectedAlignment === 'start'}"
+        aria-hidden="false" 
+        aria-label="text align icon" 
+        fontIcon="format_align_left" 
+        (click)="onChangeProperty('left')">
+      </mat-icon>
+      <mat-icon 
+        class="align-icon" 
+        [ngClass]="{'active': selectedAlignment === 'center'}"
+        aria-hidden="false" 
+        aria-label="text align icon" 
+        fontIcon="format_align_center" 
+        (click)="onChangeProperty('center')">
+      </mat-icon>
+      <mat-icon 
+        class="align-icon" 
+        [ngClass]="{'active': selectedAlignment === 'justify'}"
+        aria-hidden="false" 
+        aria-label="text align icon" 
+        fontIcon="format_align_justify" 
+        (click)="onChangeProperty('justify')">
+      </mat-icon>
+      <mat-icon 
+        class="align-icon" 
+        [ngClass]="{'active': selectedAlignment === 'right' || selectedAlignment === 'end'}"
+        aria-hidden="false" 
+        aria-label="text align icon" 
+        fontIcon="format_align_right" 
+        (click)="onChangeProperty('right')">
+      </mat-icon>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.selector-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+p {
+  margin: 0;
+}
+.toolbar-label {
+  width: 70px;
+}
+.alignments-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.align-icon {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.active {
+  border: 2px solid black;
+
+}

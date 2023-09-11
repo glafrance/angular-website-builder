@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 
+import { AlignTextToolbarComponent } from "./components/shared/toolbars/align-text-toolbar/align-text-toolbar.component";
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from "./components/app-header/app-header.component";
 import { BorderToolbarComponent } from "./components/shared/toolbars/border-toolbar/border-toolbar.component";
@@ -31,6 +32,7 @@ import { WebsiteBuilderText } from "./components/shared/website-builder-text/web
 
 @NgModule({
   declarations: [
+    AlignTextToolbarComponent,
     AppComponent,
     AppHeaderComponent,
     BorderToolbarComponent,

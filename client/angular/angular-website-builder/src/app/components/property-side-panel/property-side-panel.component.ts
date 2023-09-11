@@ -32,7 +32,8 @@ export class PropertySidePanelComponent implements OnInit {
     "background-color": "",
     "border-width": 0,
     "border-style": "",
-    "border-color": ""
+    "border-color": "",
+    "text-align": ""
   };
 
   borderColorLabel: string = "Border color: ";
@@ -74,6 +75,7 @@ export class PropertySidePanelComponent implements OnInit {
       this.elementProperties["border-color"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-color');
       this.elementProperties["border-width"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-width');
       this.elementProperties["border-style"] = ToolsUtils.getElementPropertyValue(this._elem, 'border-style');
+      this.elementProperties["text-align"] = ToolsUtils.getElementPropertyValue(this._elem, 'text-align');
     }
   }
 
@@ -106,6 +108,7 @@ export class PropertySidePanelComponent implements OnInit {
     this.elementProperties["border-width"] = 0;
     this.elementProperties["border-style"] = "none";
     this.elementProperties["border-color"] = "#000000";
+    this.elementProperties["text-align"] = "left";
 
     this.onCloseSidePanel();
   }
