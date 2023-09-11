@@ -1,0 +1,77 @@
+<div class="content-container">
+  <p class="toolbar-label">Border: </p>
+  <div class="icon-container">
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        class="border-width-icon"
+        aria-hidden="false" 
+        aria-label="border width icon" 
+        fontIcon="border_outer" 
+        (click)="onClickBorderWidth()">
+      </mat-icon>
+      <div 
+        *ngIf="showBorderWidthEditor"
+        class="border-width-editor">
+        <div class="control-container">
+          <label for="borderWidth">Border width: </label>
+          <input 
+            id="borderWidth"
+            #elBorderWidth type="number" 
+            min="1"
+            [(ngModel)]="borderWidthModel" 
+            (input)="onChangeProperty(elBorderWidth.value, 'border-width')"
+            [ngStyle]="{'width': '40px'}" />
+        </div>
+      </div>  
+    </div>
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        aria-hidden="false" 
+        aria-label="border style icon" 
+        fontIcon="border_style" 
+        (click)="onClickBorderStyle()">
+      </mat-icon>
+      <div 
+        *ngIf="showBorderStyleEditor"
+        class="border-style-editor">
+        <div class="control-container">
+          <label for="borderStyle">Border style: </label>
+          <select
+            id="borderStyle"
+            #elBorderStyle
+            [(ngModel)]="borderStyleModel" 
+            (change)="onChangeProperty(elBorderStyle.value, 'border-style')">
+            <option>dotted</option>
+            <option>dashed</option>
+            <option>solid</option>
+            <option>double</option>
+            <option>groove</option>
+            <option>ridge</option>
+            <option>inset</option>
+            <option>outset</option>
+            <option>none</option>
+            <option>hidden</option>
+          </select>   
+        </div>
+      </div>  
+    </div>
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        aria-hidden="false" 
+        aria-label="border color icon" 
+        fontIcon="border_color" 
+        (click)="onClickBorderColor()"></mat-icon>
+      <div 
+        *ngIf="showBorderColorEditor"
+        class="border-color-editor">
+        <div class="control-container">
+          <app-color-picker
+            [label]="borderColorLabel"
+            [selectedColor]="borderColorModel"
+            (colorChanged)="onChangeProperty($event, 'border-color')">
+          </app-color-picker>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

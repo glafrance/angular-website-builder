@@ -36,6 +36,7 @@ export class PropertySidePanelComponent implements OnInit {
   };
 
   borderColorLabel: string = "Border color: ";
+  tagDescription: string = "";
 
   constructor(private propertyService: PropertyService) {}
 
@@ -56,6 +57,11 @@ export class PropertySidePanelComponent implements OnInit {
     if (this._elem) {
       if (this._elem.tagName) {
         this.elementProperties.tagName = this._elem.tagName;
+        const tagProperties: any = Constants.ITEM_PROPERTIES.filter(item => item.key === this._elem.tagName.toLowerCase());
+
+        if (tagProperties && tagProperties.length) {
+          this.tagDescription = tagProperties[0].tooltip;
+        }
       }
 
       if (this._elem.textContent) {

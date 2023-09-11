@@ -11,21 +11,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 30px;
   position: relative;
+}
+.title {
+  margin: 0;
 }
 .close-icon {
   position: absolute;
   top: 0;
-  right: 10px;
+  right: 20px;
   font-size: 20px;
+  margin: 0;
+}
+.description {
+  text-align: center;
+  color: $deepPurple800;
   margin: 0;
 }
 .properties-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;  
+  padding: 30px;  
 }
 .control-row {
   display: flex;

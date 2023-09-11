@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from "./components/app-header/app-header.component";
+import { BorderToolbarComponent } from "./components/shared/toolbars/border-toolbar/border-toolbar.component";
 import { BuildWebsitesComponent } from "./components/pages/build-websites/build-websites.component";
 import { ColorPickerComponent } from "./components/shared/color-picker/color-picker.component";
 import { HomeComponent } from "./components/pages/home/home.component";
@@ -32,6 +33,7 @@ import { WebsiteBuilderText } from "./components/shared/website-builder-text/web
   declarations: [
     AppComponent,
     AppHeaderComponent,
+    BorderToolbarComponent,
     BuildWebsitesComponent,
     ColorPickerComponent,
     HomeComponent,

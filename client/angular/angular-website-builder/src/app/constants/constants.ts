@@ -75,13 +75,13 @@ export default class Constants {
     { key: "hf3col", type: "layout", tooltip: "Header, footer and three columns" },
     { key: "hf3row", type: "layout", tooltip: "Header, footer and three rows" },
     { key: "hf4cont", type: "layout", tooltip: "Header, footer and four containers" },
-    { key: "h1", type: "text", tooltip: "Heading H1 element" },
-    { key: "h2", type: "text", tooltip: "Heading H2 element" },
-    { key: "h3", type: "text", tooltip: "Heading H3 element" },
-    { key: "h4", type: "text", tooltip: "Heading H4 element" },
-    { key: "h5", type: "text", tooltip: "Heading H5 element" },
-    { key: "h6", type: "text", tooltip: "Heading H6 element" },
-    { key: "p", type: "text", tooltip: "Paragraph element" }
+    { key: "h1", type: "text", tooltip: "<h1> heading element" },
+    { key: "h2", type: "text", tooltip: "<h2> heading element" },
+    { key: "h3", type: "text", tooltip: "<h3> heading element" },
+    { key: "h4", type: "text", tooltip: "<h4> heading element" },
+    { key: "h5", type: "text", tooltip: "<h5> heading element" },
+    { key: "h6", type: "text", tooltip: "<h6> heading element" },
+    { key: "p", type: "text", tooltip: "<p> Paragraph element" }
   ];
 
   public static PROPERTY_PIXEL_VALUES: any = {

@@ -29,14 +29,23 @@ export class TextToolbarComponent {
   constructor(private elem: ElementRef) {}
 
   onClickFontSize() {
+    this.showTextColorEditor = false;
+    this.showTextBackgroundColorEditor = false;
+    
     this.showFontSizeEditor = !this.showFontSizeEditor;
   }
 
   onClickTextColor() {
+    this.showFontSizeEditor = false;
+    this.showTextBackgroundColorEditor = false;
+
     this.showTextColorEditor = !this.showTextColorEditor;
   }
 
   onClickTextBackgroundColor() {
+    this.showFontSizeEditor = false;
+    this.showTextColorEditor = false;
+
     this.showTextBackgroundColorEditor = !this.showTextBackgroundColorEditor;
   }
 

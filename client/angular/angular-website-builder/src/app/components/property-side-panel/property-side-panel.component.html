@@ -1,7 +1,7 @@
 <div
   class="side-panel">
   <div class="title-container">
-    <h3>Property Inspector</h3>
+    <h3 class="title">Property Inspector</h3>
     <mat-icon 
       class="close-icon" 
       aria-hidden="false" 
@@ -11,6 +11,7 @@
     </mat-icon>
   </div>
   <div class="properties-container">    
+    <h2 class="description">{{tagDescription}}</h2>
     <input #elText type="text" [(ngModel)]="elementProperties.textContent" (input)="onPropertyChange(elText.value, 'text')" />
     <app-text-toolbar 
       [fontSizeModel]="elementProperties['font-size']" 
@@ -18,42 +19,11 @@
       [textBackgroundColorModel]="elementProperties['background-color']"
       [changeCallback]="onPropertyChange">
     </app-text-toolbar>
-    <div class="control-row">
-      <div class="control-container">
-        <label for="borderWidth">Border width: </label>
-        <input 
-          id="borderWidth"
-          #elBorderWidth type="number" 
-          min="1"
-          [(ngModel)]="elementProperties['border-width']" 
-          (input)="onPropertyChange(elBorderWidth.value, 'border-width')"
-          [ngStyle]="{'width': '40px'}" />
-      </div>
-      <div class="control-container">
-        <label for="borderStyle">Border style: </label>
-        <select
-          id="borderStyle"
-          #elBorderStyle
-          [(ngModel)]="elementProperties['border-style']" 
-          (change)="onPropertyChange(elBorderStyle.value, 'border-style')">
-          <option>dotted</option>
-          <option>dashed</option>
-          <option>solid</option>
-          <option>double</option>
-          <option>groove</option>
-          <option>ridge</option>
-          <option>inset</option>
-          <option>outset</option>
-          <option>none</option>
-          <option>hidden</option>
-        </select> 
-      </div>
-      <app-color-picker 
-        [label]="borderColorLabel"
-        [selectedColor]="elementProperties['border-color']"
-        (colorChanged)="onPropertyChange($event, 'border-color')">
-      </app-color-picker>
-
-    </div>
+    <app-border-toolbar      
+      [borderWidthModel]="elementProperties['border-width']" 
+      [borderStyleModel]="elementProperties['border-style']"
+      [borderColorModel]="elementProperties['border-color']"
+      [changeCallback]="onPropertyChange">      
+    </app-border-toolbar>
   </div>
 </div>

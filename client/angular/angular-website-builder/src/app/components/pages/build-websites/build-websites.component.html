@@ -59,6 +59,40 @@
       (dragover)="onDragOver($event)"
       (drop)="onDrop($event)">
     </div>
+    <div
+      *ngIf="!layoutSelected"
+      class="instructions-container">
+      <h1>Building a website is as easy as:</h1>
+      <div class="steps">
+        <div class="step-container">
+          <h3><span class="step-label"><strong>Step One</strong></span> drag a layout to this design area</h3>
+          <mat-icon aria-hidden="false" aria-label="layout icon" fontIcon="space_dashboard"></mat-icon>
+        </div>
+        <div class="step-container">
+            <h3><span class="step-label"><strong>Step Two</strong></span> drag website elements into container</h3>  
+            <div 
+              class="toolbar-item">
+              <p class="text-controls-icon"><strong>T</strong></p>
+            </div>
+        </div>
+        <div class="step-container">
+          <h3><span class="step-label"><strong>Step Three</strong></span> click elements and adjust properties in the side-drawer</h3>
+          <mat-icon aria-hidden="false" aria-label="right arrow icon" fontIcon="east"></mat-icon>
+        </div>
+        <div class="step-container">
+          <h3><span class="step-label"><strong>Step Four</strong></span> repeat steps two and three to complete the website</h3>
+          <mat-icon aria-hidden="false" aria-label="repeat icon" fontIcon="replay"></mat-icon>
+        </div>
+        <div class="step-container">
+          <h3><span class="step-label"><strong>Step Five</strong></span> deploy your website to our local web server</h3>
+          <mat-icon aria-hidden="false" aria-label="upload icon" fontIcon="cloud_upload"></mat-icon>
+        </div>  
+      </div>
+      <div class="reminder">
+        <h1 class="disclaimer">This is a demo application, so of course there is more involved in building and deploying a website !!!</h1>
+        <mat-icon class="smile-icon" aria-hidden="false" aria-label="smile icon" fontIcon="sentiment_very_satisfied"></mat-icon>
+      </div>
+    </div>
     <app-property-side-panel
       *ngIf="showSidePanel"
       class="side-panel"
