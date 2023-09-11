@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from "@angular/core";
 
 import { colors } from "src/app/constants/colors";
 
@@ -10,11 +10,18 @@ import { colors } from "src/app/constants/colors";
 export class ColorPickerComponent implements OnInit {
   @Input() label: any;
   @Input() selectedColor: any;
-
   @Output() colorChanged: EventEmitter<string> = new EventEmitter<string>();
+  @HostListener("document:click", ["$event"])
+  DocumentClick(evt: Event) {
+    if (!this.el.nativeElement.contains(evt.target)) {
+      this.showPalette = false;
+    }
+  }
 
   colorInPalette: any = [];
   showPalette: boolean = false;
+
+  constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
     this.colorInPalette = colors;
