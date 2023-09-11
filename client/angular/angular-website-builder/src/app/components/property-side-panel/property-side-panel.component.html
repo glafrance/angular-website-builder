@@ -10,30 +10,14 @@
       (click)="onCloseSidePanel()">
     </mat-icon>
   </div>
-  <div class="properties-container">
+  <div class="properties-container">    
     <input #elText type="text" [(ngModel)]="elementProperties.textContent" (input)="onPropertyChange(elText.value, 'text')" />
-    <div class="control-row">
-      <div class="control-container">
-        <label for="fontSize">Font size: </label>
-        <input 
-          id="fontSize"
-          #elFontSize type="number" 
-          min="1"
-          [(ngModel)]="elementProperties['font-size']" 
-          (input)="onPropertyChange(elFontSize.value, 'font-size')"
-          [ngStyle]="{'width': '40px'}" />
-      </div>
-      <app-color-picker 
-        [label]="textColorLabel"
-        [selectedColor]="elementProperties.color"
-        (colorChanged)="onPropertyChange($event, 'color')">
-      </app-color-picker>
-      <app-color-picker 
-        [label]="backgroundColorLabel"
-        [selectedColor]="elementProperties['background-color']"
-        (colorChanged)="onPropertyChange($event, 'background-color')">
-      </app-color-picker>
-    </div>
+    <app-text-toolbar 
+      [fontSizeModel]="elementProperties['font-size']" 
+      [textColorModel]="elementProperties['color']"
+      [textBackgroundColorModel]="elementProperties['background-color']"
+      [changeCallback]="onPropertyChange">
+    </app-text-toolbar>
     <div class="control-row">
       <div class="control-container">
         <label for="borderWidth">Border width: </label>

@@ -1,0 +1,48 @@
+@import "variables";
+
+.content-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+p {
+  margin: 0;
+}
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+.icon-and-editor-container {
+  position: relative;
+}
+.icon-and-editor-container:not(:first-child) {
+  margin-right: 30px;
+}
+.font-size-icon {
+  margin-right: 20px;  
+}
+.font-size-editor,
+.text-color-editor,
+.text-background-color-editor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background-color: $lightBlue50;
+  border: 1px solid $lightBlue500;
+  border-radius: 10px;
+  opacity: 1.0;
+  padding: 10px 10px 10px 15px;
+  z-index: 300;
+}
+.font-size-editor {
+  width: 120px;
+}
+.text-color-editor {
+  width: 100px;
+}
+.text-background-color-editor {
+  width: 150px;
+}

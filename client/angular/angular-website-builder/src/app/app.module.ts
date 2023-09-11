@@ -24,6 +24,7 @@ import { PropertySidePanelComponent } from "./components/property-side-panel/pro
 import { RequestResetPasswordComponent } from "./components/signup-signin/sub-components/request-reset-password/request-reset-password.component";
 import { ResponseResetPasswordComponent } from "./components/signup-signin/sub-components/response-reset-password/response-reset-password.component";
 import { SignupSigninComponent } from "./components/signup-signin/signup-signin.component";
+import { TextToolbarComponent } from "./components/shared/toolbars/text-toolbar/text-toolbar.component";
 import { UserProfileComponent } from "./components/pages/user-profile/user-profile.component";
 import { WebsiteBuilderText } from "./components/shared/website-builder-text/website-builder-text.component";
 
@@ -40,6 +41,7 @@ import { WebsiteBuilderText } from "./components/shared/website-builder-text/web
     ResponseResetPasswordComponent,
     SignupSigninComponent,
     WebsiteBuilderText,
+    TextToolbarComponent,
     UserProfileComponent
   ],
   imports: [

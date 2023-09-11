@@ -35,8 +35,6 @@ export class PropertySidePanelComponent implements OnInit {
     "border-color": ""
   };
 
-  textColorLabel: string = "Text color: ";
-  backgroundColorLabel: string = "Background color: ";
   borderColorLabel: string = "Border color: ";
 
   constructor(private propertyService: PropertyService) {}
@@ -73,7 +71,7 @@ export class PropertySidePanelComponent implements OnInit {
     }
   }
 
-  onPropertyChange(value: any, prop: string) {
+  onPropertyChange = (value: any, prop: string) => {
     if (prop === "text") {
       if (value === "") {
         this._elem.textContent = Constants.ADD_TEXT_HERE;
@@ -91,37 +89,6 @@ export class PropertySidePanelComponent implements OnInit {
       }  
     }
   }
-
-// } else if (prop === "background-color") {
-//   this._elem.style.backgroundColor = value;
-//   this.elementProperties["background-color"] = value;
-// } else if (prop === "font-size") {
-//   this._elem.style.fontSize = `${value}px`;
-//   this.elementProperties["font-size"] = value;
-// } else if (prop === "border-width") {
-//   this._elem.style.borderWidth = `${value}px`;
-//   this.elementProperties["border-width"] = value;
-// } else if (prop === "border-style") {
-//   this._elem.style.borderStyle = value;
-//   this.elementProperties["border-style"] = value;
-// } else if (prop === "border-color") {
-//   this._elem.style.borderColor = value;
-//   this.elementProperties["border-color"] = value;
-// }
-
-  // onPropertyChange(value: any, prop: string) {
-  //   if (prop === "text") {
-  //     if (value === "") {
-  //       this._elem.textContent = Constants.ADD_TEXT_HERE;
-  //     } else {
-  //       this._elem.textContent = value;
-  //     }
-  //     this.elementProperties.textContent = this._elem.textContent;
-  //   } else {
-  //     this._elem.style[prop] = value;
-  //     this.elementProperties[prop] = value;
-  //   }
-  // }
 
   resetPanel() {
     this._elem = null;

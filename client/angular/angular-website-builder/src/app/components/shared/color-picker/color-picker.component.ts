@@ -13,7 +13,7 @@ export class ColorPickerComponent implements OnInit {
   @Output() colorChanged: EventEmitter<string> = new EventEmitter<string>();
   @HostListener("document:click", ["$event"])
   DocumentClick(evt: Event) {
-    if (!this.el.nativeElement.contains(evt.target)) {
+    if (!this.elem.nativeElement.contains(evt.target)) {
       this.showPalette = false;
     }
   }
@@ -21,7 +21,7 @@ export class ColorPickerComponent implements OnInit {
   colorInPalette: any = [];
   showPalette: boolean = false;
 
-  constructor(private el: ElementRef) {}
+  constructor(private elem: ElementRef) {}
 
   ngOnInit(): void {
     this.colorInPalette = colors;

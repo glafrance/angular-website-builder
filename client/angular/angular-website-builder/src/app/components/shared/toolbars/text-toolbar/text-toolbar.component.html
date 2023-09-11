@@ -1,0 +1,65 @@
+<div class="content-container">
+  <p>Text properties: </p>
+  <div class="icon-container">
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        class="font-size-icon" 
+        aria-hidden="false" 
+        aria-label="font size icon" 
+        fontIcon="format_size" 
+        (click)="onClickFontSize()">
+      </mat-icon>
+      <div 
+        *ngIf="showFontSizeEditor"
+        class="font-size-editor">
+        <div class="control-container">
+          <label for="fontSize">Font size: </label>
+          <input 
+            id="fontSize"
+            #elFontSize type="number" 
+            min="1"
+            [(ngModel)]="fontSizeModel" 
+            (input)="onChangeProperty(elFontSize.value, 'font-size')"
+            [ngStyle]="{'width': '40px'}" />
+        </div>
+      </div>  
+    </div>
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        aria-hidden="false" 
+        aria-label="text color icon" 
+        fontIcon="format_color_text" 
+        (click)="onClickTextColor()"></mat-icon>
+      <div 
+        *ngIf="showTextColorEditor"
+        class="text-color-editor">
+        <div class="control-container">
+          <app-color-picker
+            [label]="textColorLabel"
+            [selectedColor]="textColorModel"
+            (colorChanged)="onChangeProperty($event, 'color')">
+          </app-color-picker>
+        </div>
+      </div>  
+    </div>
+    <div class="icon-and-editor-container">
+      <mat-icon 
+        aria-hidden="false" 
+        aria-label="text background color icon" 
+        fontIcon="format_color_fill" 
+        (click)="onClickTextBackgroundColor()">
+      </mat-icon>
+      <div 
+        *ngIf="showTextBackgroundColorEditor"
+        class="text-background-color-editor">
+        <div class="control-container">
+          <app-color-picker 
+            [label]="backgroundColorLabel"
+            [selectedColor]="textBackgroundColorModel"
+            (colorChanged)="onChangeProperty($event, 'background-color')">
+          </app-color-picker>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
